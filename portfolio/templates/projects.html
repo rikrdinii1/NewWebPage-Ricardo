@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<h1>Projects</h1>
+
+{% for i in project %}
+
+<a href="{% url 'blog:project_detail' i.id %}"><img src="{{i.main_image.url}}" alt="{{i.title}}"></a>
+
+
+{% endfor %}
+
+
+{% endblock %}

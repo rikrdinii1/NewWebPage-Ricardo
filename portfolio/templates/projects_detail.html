@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+<h1>Projects Details</h1>
+
+
+<img src="{{project.main_image.url}}" alt="{{project.title}}">
+<h2>{{project.title}}</h2>
+<h3>{{project.subtitle}}</h3>
+
+{% if project.second_image %}
+<img src="{{project.second_image.url}}" alt="{{project.title}}">
+{% endif %}
+
+<p>{{project.description|safe}}</p>
+
+{% if project.third_image %}
+<img src="{{project.third_image.url}}" alt="{{project.title}}">
+{% endif %}
+
+
+{% if project.url %}
+<a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="__blank" rel="noreferrer">Visit the Project</a>
+{% endif %}
+
+{% endblock %}

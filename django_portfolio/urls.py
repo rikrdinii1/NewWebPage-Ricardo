@@ -15,16 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
+# Importamos nuevas librerias
 from django.conf.urls.static import static
 from django.conf import settings
 
-from portfolio import views
- 
+# importamos en donde se encuentran las nuevas ligas a utilizar
+from main import views
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.home, name='home'), # ver si se puede hacer lo mismo que con el blog para los proyectos
-    path('blog', include('blog.urls'))
+    path("admin/", admin.site.urls),
+    # Agregamos los patrones de las ligas que hemos creado
+    path('', views.home, name='home'), #con el nombre es como colocarle un ID a la liga
+    path('projects/', include('portfolio.urls')) # con esta ruta renderizamos los proyectos
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

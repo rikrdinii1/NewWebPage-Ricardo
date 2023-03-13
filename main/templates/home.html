@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1>Main</h1>
+
+{% for i in main %}
+
+<h2>{{i.name}}</h2>
+<p>{{i.description}}</p>
+<img src="{{i.image.url}}" alt="{{i.name}}">
+
+{% endfor %}
+
+{% endblock %}
