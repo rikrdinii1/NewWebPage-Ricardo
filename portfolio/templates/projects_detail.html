@@ -2,27 +2,44 @@
 
 {% block content %}
 
+<header class="row bg-black">
+    <div class="col-md-4">
+        <img src="{{project.main_image.url}}" alt="{{project.title}}" class="img-fluid">
+    </div>
+    
+    <div class="col-md-8 my-auto">
+        <h1>{{project.title}}</h1>
+        <h3 class="my-2 h5 text-muted">{{project.subtitle}}</h3>
+    </div>
+    
+</header>
 
-<h1>Projects Details</h1>
+<div class="text-center">
 
+    <div class="col-md-8 bg-black">
+        {% if project.second_image %}
+            <img src="{{project.second_image.url}}" alt="{{project.title}}" class="img-fluid">
+        {% endif %}
+    </div>
+    
+    <div>
+        <div class="my-4">
+            <p>{{project.description|safe}}</p>
+        </div>
+    </div>
+    
+    <div class="col-md-8">
+        {% if project.third_image %}
+        <img src="{{project.third_image.url}}" alt="{{project.title}}" class="img-fluid">
+        {% endif %}
+    </div>
+    
+    <div>
+    {% if project.url %}
+    <a href="{{project.url}}" class="btn rounded-0 btn-sm" target="__blank" rel="noreferrer">Visit the Project</a>
+    {% endif %}
+    </div>
 
-<img src="{{project.main_image.url}}" alt="{{project.title}}">
-<h2>{{project.title}}</h2>
-<h3>{{project.subtitle}}</h3>
-
-{% if project.second_image %}
-<img src="{{project.second_image.url}}" alt="{{project.title}}">
-{% endif %}
-
-<p>{{project.description|safe}}</p>
-
-{% if project.third_image %}
-<img src="{{project.third_image.url}}" alt="{{project.title}}">
-{% endif %}
-
-
-{% if project.url %}
-<a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="__blank" rel="noreferrer">Visit the Project</a>
-{% endif %}
+</div>
 
 {% endblock %}

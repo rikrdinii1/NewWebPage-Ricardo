@@ -2,13 +2,18 @@
 
 {% block content %}
 
-
-<h1>Projects</h1>
+<h1>Mis Proyectos</h1>
 
 {% for i in project %}
 
-<a href="{% url 'blog:project_detail' i.id %}"><img src="{{i.main_image.url}}" alt="{{i.title}}"></a>
+<div class="col-md-4 p-4">
+    
+        <div class="card-body">
+            <a href="{% url 'blog:project_detail' i.id %}"><img src="{{i.main_image.url}}" alt="{{i.title}}" class="img-fluid"></a>
+        </div>
 
+
+</div>
 
 {% endfor %}
 

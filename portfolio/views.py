@@ -13,3 +13,9 @@ def project_detail(request, project_id):
     '''Funcion para renderizar el detalle del proyecto'''
     project = get_object_or_404(Portfolio, pk = project_id)
     return render(request, 'projects_detail.html', {'project':project})
+
+# Create your views here.
+def render_proyects2(request):
+    '''funcion para retornar el template de proyectos'''
+    project = Portfolio.objects.all()
+    return render(request, 'projects2.html', {'project':project})

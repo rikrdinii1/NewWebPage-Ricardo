@@ -20,15 +20,17 @@
     
 </head>
 
-<body>
-
-    <body class="text-light"></body>
-    
+<body class="text-light bg-black">
     
     {% include 'partials/navbar.html' %}
 
+    <div class="container p-4">
+
+        
     {% block content %}
     {% endblock %}
+
+    </div>
 
     {% include 'partials/footer.html' %}
 

@@ -9,7 +9,7 @@ class Main(models.Model):
     name = CharField(max_length=100)
     image = ImageField(upload_to='main/images/')
     description = TextField(blank=True)
-
+    subtitle = CharField(max_length=300, blank=True)
 
 
 

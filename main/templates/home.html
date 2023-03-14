@@ -1,15 +1,60 @@
 {% extends 'layout.html' %}
+{% load static %}
+
 
 {% block content %}
 
-<h1>Main</h1>
-
+ <!-- Presentacion -->
 {% for i in main %}
 
-<h2>{{i.name}}</h2>
-<p>{{i.description}}</p>
-<img src="{{i.image.url}}" alt="{{i.name}}">
+<header class="p-4 row bg-black">
+    <div class="col-md-4">
+        <img src="{{i.image.url}}" alt="{{i.name}}" class="img-fluid">
+    </div>
+
+    <div class="col-md-8 my-auto">
+        <h1>Hola! Soy <strong>{{i.name}}</strong></h1>
+        <h3>{{i.subtitle}}</h3>
+        <p>{{i.description|safe}}</p>
+    </div>
+</header>
 
 {% endfor %}
+
+
+
+<!-- Agregar Escuelas -->
+
+<section class="p-4 fondo">
+
+
+    <h1 class="text-center">Donde eh Estudiado</h1> 
+    
+    <div class="container text-center">
+        <div class="row align-items-center">
+            <div class="col">
+                
+            <h2>Escuela Bancaria y Comercial</h2>
+            <p class="my-2 h5 text-muted"><strong>Generación 2013 - 2017</strong></p>
+            <h4>Licenciatura en Banca y Finanzas</h4>
+            <p>Finanzas bursátiles y corporativas, Análisis de Estrategias Financieras para Empresas y Personas, Portafolios de Inversión, Análisis de Información, Excel, Matemáticas Financieras, Administración Financiera</p>
+        
+            </div>
+
+            <div class="col">
+                <h2>Ironhack Mexico</h2>
+                <p class="my-2 h5 text-muted"><strong>Sep 2020 - Mar 2021</strong></p>
+                <h4>Data Analytics Bootcamp</h4>
+                <p>Análisis de Datos usando Python (Pandas, Numpy), MySQL, Visualización de Información (Tableau, PowerBI, Matplotlib, Seaborn), Creación, evaluación y desarrollo de modelos de ML (SKLearn), Estadística e Inteligencia de Negocios, Limpieza de Datos, API y WebScraping </p>
+           
+            </div>
+        </div> 
+    </div> 
+
+</section>
+
+
+
+
 
 {% endblock %}
