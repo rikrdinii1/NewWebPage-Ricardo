@@ -6,6 +6,12 @@ body {
     background: #000;
 }
 
+.nav-link {
+    margin-right: 20px;
+  }
+
+
+ /* Imagen de la escuela */
 .fondo {
     background-color: var(--clr-dark); /* Validar otros colores */
     /*  Editar Imagen  */
