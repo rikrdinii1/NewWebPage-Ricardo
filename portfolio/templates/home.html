@@ -4,12 +4,31 @@
 
 {% block content %}
 
+<head>
+    <style>
+        .rounded-img {
+        border-radius: 50%;
+        }
+        
+        /* Imagen de la escuela */
+        .fondo {
+        background-color: var(--clr-dark); /* Validar otros colores */
+        /*  Editar Imagen  */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(static/EBCToluca.jpg); 
+        background-size: cover;
+        background-blend-mode: multiply; 
+        color: var(#494747);
+        text-align: center;
+         }
+    </style>
+</head>
+
  <!-- Presentacion -->
 {% for i in main %}
 
-<header class="p-4 row bg-black">
+<header class="p-4 row">
     <div class="col-md-4">
-        <img src="{{i.image.url}}" alt="{{i.name}}" class="img-fluid">
+        <img src="{{i.image.url}}" alt="{{i.name}}" class="img-fluid rounded-img">
     </div>
 
     <div class="col-md-8 my-auto">
@@ -21,12 +40,9 @@
 
 {% endfor %}
 
-
-
 <!-- Agregar Escuelas -->
 
 <section class="p-4 fondo">
-
 
     <h1 class="text-center">Donde eh Estudiado</h1> 
     
@@ -54,7 +70,13 @@
 </section>
 
 
-
+<!-- Agregar Escuelas -->
+<section>
+    <h1 class="text-center">Mis Proyectos</h1>
+    {% include 'projects2.html' %}
+</section>
 
 
 {% endblock %}
+
+

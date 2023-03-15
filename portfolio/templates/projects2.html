@@ -2,9 +2,10 @@
 
 {% block content %}
 
-{% for i in project %}
+    <h1>Mis Proyectos</h1>
 
-<body>
+    {% for i in project %}
+
     <div class="col-md-4 p-4">
         
             <div class="card-body">
@@ -13,8 +14,6 @@
 
 
     </div>
-</body>
-{% endfor %}
 
-
+    {% endfor %}
 {% endblock %}
