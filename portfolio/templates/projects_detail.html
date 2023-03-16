@@ -1,45 +1,57 @@
 {% extends 'layout.html' %}
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
 
 {% block content %}
 
-<header class="row bg-black">
-    <div class="col-md-4">
-        <img src="{{project.main_image.url}}" alt="{{project.title}}" class="img-fluid">
-    </div>
-    
-    <div class="col-md-8 my-auto">
-        <h1>{{project.title}}</h1>
-        <h3 class="my-2 h5 text-muted">{{project.subtitle}}</h3>
-    </div>
-    
-</header>
+<!-- Estilos CSS -->
 
-<div class="text-center">
+<body>
 
-    <div class="col-md-8 bg-black">
-        {% if project.second_image %}
-            <img src="{{project.second_image.url}}" alt="{{project.title}}" class="img-fluid">
-        {% endif %}
-    </div>
+<!-- Cabecera -->
+
+    <section class="intro">
+        <h1 class="section__title section__title--intro">
+            {{project.title|safe}}
+        </h1>
+        <p class="section__subtitle section__subtitle--intro"> {{project.subtitle}}</p>
+        <img src="{{project.main_image.url}}" alt="{{project.title}}" class="intro__img">
+    </section>
+
+    <!-- Imagen y Textos -->
+
     
-    <div>
-        <div class="my-4">
-            <p>{{project.description|safe}}</p>
+    <div class="text-center">
+
+        <div class="col-md-8 bg-black">
+            {% if project.second_image %}
+                <img src="{{project.second_image.url}}" alt="{{project.title}}" class="img-fluid">
+            {% endif %}
         </div>
-    </div>
-    
-    <div class="col-md-8">
-        {% if project.third_image %}
-        <img src="{{project.third_image.url}}" alt="{{project.title}}" class="img-fluid">
+        
+        <div>
+            <div class="my-4">
+                <p>{{project.description|safe}}</p>
+            </div>
+        </div>
+        
+        <div class="col-md-8">
+            {% if project.third_image %}
+            <img src="{{project.third_image.url}}" alt="{{project.title}}" class="img-fluid">
+            {% endif %}
+        </div>
+        
+        <div>
+        {% if project.url %}
+        <a href="{{project.url}}" class="btn rounded-0 btn-sm" target="__blank" rel="noreferrer">Visit the Project</a>
         {% endif %}
+        </div>
+
     </div>
+
     
-    <div>
-    {% if project.url %}
-    <a href="{{project.url}}" class="btn rounded-0 btn-sm" target="__blank" rel="noreferrer">Visit the Project</a>
-    {% endif %}
-    </div>
-
-</div>
-
+</body>
 {% endblock %}

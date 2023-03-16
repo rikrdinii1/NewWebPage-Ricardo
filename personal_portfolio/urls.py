@@ -29,7 +29,7 @@ urlpatterns = [
     # Agregamos los patrones de las ligas que hemos creado
     path("", views.home, name="home"),  # con el nombre es como colocarle un ID a la liga
     path("portfolio/", include("portfolio.urls")),  # con esta ruta renderizamos los proyectos
-    path("portfolio/", views.render_proyects2, name="projects2"),
+    path("projects2/", views.render_proyects2, name="projects2"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

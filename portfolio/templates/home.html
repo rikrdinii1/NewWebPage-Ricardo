@@ -4,45 +4,81 @@
 
 {% block content %}
 
-<head>
-    <style>
-        .rounded-img {
-        border-radius: 50%;
-        }
-        
-        /* Imagen de la escuela */
-        .fondo {
-        background-color: var(--clr-dark); /* Validar otros colores */
-        /*  Editar Imagen  */
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(static/EBCToluca.jpg); 
-        background-size: cover;
-        background-blend-mode: multiply; 
-        color: var(#494747);
-        text-align: center;
-         }
-    </style>
-</head>
+<!-- Formatos -->
+<style>
+    .rounded-img {
+    border-radius: 50%;
+    }
+    
+    /* Imagen de la escuela */
+    .fondo {
+    background-color: var(--clr-dark); /* Validar otros colores */
+    /*  Editar Imagen  */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(static/EBCToluca.jpg); 
+    background-size: 100% 100%;
+    background-blend-mode: multiply; 
+    color: var(#494747);
+    text-align: center;
+    }
 
- <!-- Presentacion -->
-{% for i in main %}
+    /* Separacion entre las diferentes secciones */
+    .seccion {
+    margin-bottom: 40px;
+    }
 
-<header class="p-4 row">
-    <div class="col-md-4">
-        <img src="{{i.image.url}}" alt="{{i.name}}" class="img-fluid rounded-img">
-    </div>
+    /* nombre de color en la presentacion */
+    .super-name h1 {
+        color: white;
+        font-size: 47px;
+        font-weight: 900;
+        line-height: 1.2;
+        margin: 10px 0px 20px;
+    }
 
-    <div class="col-md-8 my-auto">
-        <h1>Hola! Soy <strong>{{i.name}}</strong></h1>
-        <h3>{{i.subtitle}}</h3>
-        <p>{{i.description|safe}}</p>
-    </div>
-</header>
+    span{
+        color: #2ecc71;
+    }
 
-{% endfor %}
+    .super-name h4 {
+        color: #eee;
+        font-weight: 400;
+        font-size: 17px;
+    }
 
-<!-- Agregar Escuelas -->
+    .super-name p {
+        width: 440px;
+        max-width: 100%;
+        color: #eee;
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 30px;
+    }
 
-<section class="p-4 fondo">
+</style>
+
+
+
+<!-- Presentacion -->
+<section class="seccion mx-auto" style="max-width: 800px; padding: 0 15px;">
+    
+    {% for i in main %}
+
+    <header class="p-4 row">
+        <div class="col-md-4">
+            <img src="{{i.image.url}}" alt="{{i.name}}" class="img-fluid rounded-img">
+        </div>
+
+        <div class="col-md-8 my-auto super-name">
+            <h1>Hola! Soy <span class="input" data-name="{{i.name}}" data-subtitle="{{i.subtitle}}"></span></h1>
+            <p>{{i.description|safe}}</p>
+        </div>
+    </header>
+
+    {% endfor %}
+</section>
+
+<!-- Escuelas -->
+<section class="p-4 fondo seccion">
 
     <h1 class="text-center">Donde eh Estudiado</h1> 
     
@@ -69,14 +105,33 @@
 
 </section>
 
+<!-- Proyectos -->  
+<section class="seccion">
+  <h1 style="text-align: center;">Mis Proyectos</h1>
+  
+  {% include 'projects2.html' %}
 
-<!-- Agregar Escuelas -->
-<section>
-    <h1 class="text-center">Mis Proyectos</h1>
-    {% include 'projects2.html' %}
 </section>
 
 
+<script type="text/javascript" src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    var inputs = document.getElementsByClassName("input");
+
+    for (var i = 0; i < inputs.length; i++) {
+        var input = inputs[i];
+        var name = input.getAttribute("data-name");
+        var subtitle = input.getAttribute("data-subtitle");
+
+        var typed = new Typed(input, {
+            strings: [name, subtitle],
+            typeSpeed: 60, 
+            backSpeed: 50,
+            loop: true
+        });
+    }
+</script>
 {% endblock %}
 
 

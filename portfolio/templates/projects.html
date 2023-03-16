@@ -3,74 +3,60 @@
 {% block content %}
 
 <style>
-    .image-container {
-        display: flex; /* mostrar las imágenes en una sola fila */
-        flex-wrap: wrap; /* permitir que las imágenes se envuelvan si no hay suficiente espacio en la fila */
-        justify-content: center; /* centrar las imágenes horizontalmente */
-        width: 600px;
-        height: 430px;
+    
+  .kodfun-galeri {
+    display: flex;
+    height: 20rem;
+    gap: 1rem;
+    display: flex; /* mostrar las imágenes en una sola fila */
+    flex-wrap: wrap; /* permitir que las imágenes se envuelvan si no hay suficiente espacio en la fila */
+    justify-content: center; /* centrar las imágenes horizontalmente */
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .kodfun-galeri > div {
+    flex: 1;
+    border-radius: 1rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    transition: all .8s cubic-bezier(.25, .4, .45, 1.4);
+    width: 300px;
+    height: 300px;
+    opacity: .6;
+    
+  }
 
-    }
-    
-    .image-wrapper {
-        transition: 0.5s ease; /* agregar transición a los efectos de crecimiento y eliminación de sombra */
-        width: 0px;
-        flex-grow: 1;
-        object-fit: cover; /* hacer que las imágenes se ajusten al contenedor sin deformarlas */
-        opacity: .8;
-        }
-    
-    .image-wrapper:hover {
-        transform: scale(1.1); /* hacer que la imagen crezca al pasar el cursor sobre ella */
-        filter: contrast(120%);
-        width: 300px;
-        opacity: 1;
-    }
-    
-    .image-wrapper img {
-        display: block; /* evitar que las imágenes tengan un espacio en blanco debajo de ellas */
-        width: 100%; /* hacer que todas las imágenes tengan el mismo tamaño */
-        height: auto; /* hacer que la altura de las imágenes se ajuste automáticamente */
-    }
-    
-    @media (max-width: 768px) {
-        .image-wrapper {
-            flex-basis: 50%; /* mostrar 2 imágenes por fila en pantallas pequeñas */
-        }
-    }
-    
-    .card-body {
-      display: inline-block;
-      width: 20%;
-      max-width: 200px;
-      text-align: center;
-      margin-right: 1%;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-      transition: all 0.3s ease;
-    }
-    
-    .card-body:hover {
-      box-shadow: none;
-      transform: scale(1.1);
-      z-index: 1;
-    }
-    
-    
-    </style>
+  .kodfun-galeri > div img {
+    height: 300px;
+    width: 600px;
+    display: flex;
+    object-fit: cover;
+  }
+
+  .kodfun-galeri > div:hover {
+    flex: 5;
+    filter: contrast(120%);
+    opacity: 1;
+  }
+</style>
 
 
-<h1>Mis Proyectos</h1>
+<h1 style="text-align: center;">Mis Proyectos</h1>
 
-<div class="image-container">
-  {% for i in project %}
-    <div class="card-body">
-      <a href="{% url 'blog:project_detail' i.id %}">
-        <img src="{{i.main_image.url}}" alt="{{i.title}}" class="img-fluid">
-      </a>
-    </div>
-  {% endfor %}
-</div>
+<body>
+  <div class="kodfun-galeri">
+    {% for i in project %}
+      <div>
+        <a href="{% url 'blog:project_detail' i.id %}">
+          <img src="{{i.main_image.url}}" alt="{{i.title}}" class="img-fluid">
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+
 
 {% endblock %}
-
 

@@ -11,13 +11,10 @@ def home(request):
     main = Main.objects.all()
     return render(request, "home.html", {"main": main})
 
-
-# Create your views here.
 def render_proyects(request):
     """funcion para retornar el template de proyectos"""
     project = Portfolio.objects.all()
     return render(request, "projects.html", {"project": project})
-
 
 def project_detail(request, project_id):
     """Funcion para renderizar el detalle del proyecto"""
@@ -25,7 +22,7 @@ def project_detail(request, project_id):
     return render(request, "projects_detail.html", {"project": project})
 
 
-# Create your views here.
+
 def render_proyects2(request):
     """funcion para retornar el template de proyectos"""
     project = Portfolio.objects.all()
