@@ -1,57 +1,62 @@
 {% extends 'layout.html' %}
 {% load static %}
-<head>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-
 
 {% block content %}
 
-<!-- Estilos CSS -->
+<style>
+    h1,h2,h3 {
+        line-height: 1;
+        margin: 0;
+    }
 
+    .h1-style {
+        font-size: 3rem;
+    }
+
+    .h2-style {
+        font-size: 2.25rem;
+    }
+
+    .h3-style {
+        font-size: 1.25rem;
+    }
+</style>
 <body>
+    
 
-<!-- Cabecera -->
-
-    <section class="intro">
-        <h1 class="section__title section__title--intro">
-            {{project.title|safe}}
+    <section class="intro section-format">
+        <h1 class="section__title section__title--intro intro h1-style">
+            Extracción de Datos
         </h1>
-        <p class="section__subtitle section__subtitle--intro"> {{project.subtitle}}</p>
-        <img src="{{project.main_image.url}}" alt="{{project.title}}" class="intro__img">
+        <p class="section__subtitle section__subtitle--intro">Spotify API</p>
+        <img src="https://rikrdinii1.github.io/Portafolio-RicardoFuentesC/img/Spotify-proyect1.jpg" alt=""
+            class="intro__img img-format">
     </section>
 
-    <!-- Imagen y Textos -->
+    <div class="portfolio-item-individual">
 
-    
-    <div class="text-center">
+        <h3 class="h3-style">Proyecto Realizado durante el Bootcamp de Data Analytics en Ironhack</h3>
+        <h4>Conexión con Python a la API de Spotify</h4>
 
-        <div class="col-md-8 bg-black">
-            {% if project.second_image %}
-                <img src="{{project.second_image.url}}" alt="{{project.title}}" class="img-fluid">
-            {% endif %}
-        </div>
-        
-        <div>
-            <div class="my-4">
-                <p>{{project.description|safe}}</p>
-            </div>
-        </div>
-        
-        <div class="col-md-8">
-            {% if project.third_image %}
-            <img src="{{project.third_image.url}}" alt="{{project.title}}" class="img-fluid">
-            {% endif %}
-        </div>
-        
-        <div>
-        {% if project.url %}
-        <a href="{{project.url}}" class="btn rounded-0 btn-sm" target="__blank" rel="noreferrer">Visit the Project</a>
-        {% endif %}
-        </div>
+        <img src="https://rikrdinii1.github.io/Portafolio-RicardoFuentesC/img/Spotify-proyect2.jpg" alt="" class="img-format">
+
+
+        <p>Proyecto de fin de modulo 1 del Bootcam de <strong>Data Analytics</strong> en <strong>Ironhack</strong></p>
+        <p>Durante este modulo se ve el uso de <strong>Python</strong> y se termina con WebScraping y conexión a API´s para
+            extracción de información</p>
+        <p>Mi proyecto consiste en la conexión a la API de Spotify para extraer información de mis gustos de música y los de
+            mi pareja para poder analizarlos posteriormente. </p>
+        <p>Ya que la información viene en formato JSON, se trabaja con ella para poder dejarla en tablas de pandas y poder
+            exportarla a un CSV y que sea mas manejable. </p>
+        <p>Por ultimo, hago mención que no se utiliza la ya creada Librería de Spotify, sino que me enfoco en la creación de
+            toda la conexión a la API mediante la documentación oficial de Spotify.</p>
+
+
+        <p>Puedes revisar el repositorio de este proyecto en mi <a
+                href="https://github.com/rikrdinii1/project-data-extraction"><strong>GitHub</strong></A></p>
 
     </div>
 
-    
 </body>
+
 {% endblock %}
