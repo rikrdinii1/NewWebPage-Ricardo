@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 
 # Importamos la consulta a la base de datos
 from .models import Main, Portfolio, Document
-
+from django.http import HttpResponse
 
 # Create your views here.
 def home(request):
@@ -30,7 +30,3 @@ def render_proyects2(request):
 
 
 
-def view_document(request):
-    """Funcion para retornar el PDF"""
-    document = Document.objects.all()
-    return render(request, {'document': document})

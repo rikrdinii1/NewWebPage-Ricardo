@@ -58,7 +58,7 @@
             <a class="nav-link fw-bold" href="{% url 'blog:projects' %}">Projects</a>
           </li>
           <li class="nav-item">
-            <a href="{{ document.pdf.url }}" download>
+            <a href="{% static 'cv.pdf' %}" download>
               <button class="cv fw-bold">Download CV</button>
             </a>
           </li>

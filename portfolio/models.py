@@ -28,7 +28,6 @@ class Portfolio(models.Model):
     url = URLField(blank=True)
 
 class Document(models.Model):
-    title = CharField(max_length=255)
-    pdf = models.FileField(upload_to='static/')
+    pdf = models.FileField(upload_to='portfolio/')
 
 
