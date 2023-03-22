@@ -1,11 +1,7 @@
-superuser problem solved: https://stackoverflow.com/questions/32532900/not-able-to-create-super-user-with-django-manage-py
+Comandos: 
 
-cada que se agrega un modelo, se ingresa cn el siguiente comando
-
+python manage.py runserver
 python manage.py makemigrations
-python manage.py migrate 
-
-# Pendientes
-
-agregar: Escuelas para poder controlarlo desde el Admin/
-Modificar: cambiar el comportamiento para que la seccion de portafolio se muestre como la de blog. 
+python manage.py migrate
+winpty python manage.py createsuperuser
+python manage.py startapp [name]
