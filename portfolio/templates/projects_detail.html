@@ -20,41 +20,78 @@
     .h3-style {
         font-size: 1.25rem;
     }
-</style>
+
+    /* Boton para descargar el CV */
+    button.cv {
+      background: black;
+      cursor: pointer;
+      border: none;
+      padding: 8px 12px;
+      color: #FFF;
+      font-size: 16px;
+      font-weight: bold;
+      position: relative;
+      border-radius: 12px;
+      margin-top: 5px;
+    }
+
+    button.cv::before {
+      content : "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, red, blue, deeppink, green, purple, red, blue, deeppink, green, purple);
+      background-size: 800%;
+      border-radius: 10px;
+      filter: blur(8px);
+      animation: glowing 40s linear infinite;
+    }
+
+    @keyframes glowing {
+      0% {background-position: 0 0;}
+      50% {background-position: 800% 0;}
+      100% {background-position: 0 0;}
+    }
+
+    .nav-link {
+    margin-right: 20px;
+    }
+
+  </style>
 <body>
     
 
     <section class="intro section-format">
         <h1 class="section__title section__title--intro intro h1-style">
-            Extracción de Datos
+            {{project.title}}
         </h1>
-        <p class="section__subtitle section__subtitle--intro">Spotify API</p>
-        <img src="https://rikrdinii1.github.io/Portafolio-RicardoFuentesC/img/Spotify-proyect1.jpg" alt=""
+        <p class="section__subtitle section__subtitle--intro">{{project.subtitle}}</p>
+        <img src={{project.main_image.url}} alt=""
             class="intro__img img-format">
     </section>
 
     <div class="portfolio-item-individual">
 
-        <h3 class="h3-style">Proyecto Realizado durante el Bootcamp de Data Analytics en Ironhack</h3>
-        <h4>Conexión con Python a la API de Spotify</h4>
-
-        <img src="https://rikrdinii1.github.io/Portafolio-RicardoFuentesC/img/Spotify-proyect2.jpg" alt="" class="img-format">
+        <img src="{{project.second_image.url}}" alt="" class="img-format">
 
 
-        <p>Proyecto de fin de modulo 1 del Bootcam de <strong>Data Analytics</strong> en <strong>Ironhack</strong></p>
-        <p>Durante este modulo se ve el uso de <strong>Python</strong> y se termina con WebScraping y conexión a API´s para
-            extracción de información</p>
-        <p>Mi proyecto consiste en la conexión a la API de Spotify para extraer información de mis gustos de música y los de
-            mi pareja para poder analizarlos posteriormente. </p>
-        <p>Ya que la información viene en formato JSON, se trabaja con ella para poder dejarla en tablas de pandas y poder
-            exportarla a un CSV y que sea mas manejable. </p>
-        <p>Por ultimo, hago mención que no se utiliza la ya creada Librería de Spotify, sino que me enfoco en la creación de
-            toda la conexión a la API mediante la documentación oficial de Spotify.</p>
+        {{project.description|safe}}
 
+        {% if project.third_image %}
+        <img src="{{project.third_image.url}}" alt="" class="img-format">
+        {% endif %}
 
-        <p>Puedes revisar el repositorio de este proyecto en mi <a
-                href="https://github.com/rikrdinii1/project-data-extraction"><strong>GitHub</strong></A></p>
-
+        <div class="p-4">
+        {% if project.url %}
+        <a href="{{project.url}}">
+            <button class="cv fw-bold" target="_blank" rel="noreferrer">Visita el Proyecto</button>
+        </a>
+        {% endif %}
+        </div>
+        
     </div>
 
 </body>
