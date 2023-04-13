@@ -11,6 +11,7 @@
     margin-top: 20px;
     border-radius: 20px;
     overflow: hidden;
+    max-width: 350px;
   }
   
   .image-container img {
@@ -22,16 +23,19 @@
 
 <div style="display: flex;">
   <div style="flex: 1; display: flex; align-items: center;">
-    <p style="text-align: center;">Texto centrado</p>
+    <p style="text-align: center;">
+      Soy un profesional apasionado por el diseño y la ingeniería de productos con amplia experiencia en el desarrollo de mobiliario clásico, moderno y contemporáneo. Mis habilidades y conocimientos en el diseño y modelado 3D, renderizado, generación de planos de producción y procesos de fabricación me permiten abordar proyectos desde la conceptualización hasta la producción final de manera eficiente y efectiva.
+    </p>
   </div>
   <div style="flex: 1;">
     <div class="image-container">
-      <a href="{% url 'blog:projects' %}"><img src="{% static 'Proyecto_bot.jpg' %}" alt="Imagen 1"></a>
-      <a href="{% url 'blog:projects' %}"><img src="{% static 'regresion-lineal-multiple.jpg' %}" alt="Imagen 2"></a>
-      <a href="{% url 'blog:projects' %}"><img src="{% static 'Spotify-proyect.jpg' %}" alt="Imagen 3"></a>
-      <a href="{% url 'blog:projects' %}"><img src="{% static 'Telegram.jpg' %}" alt="Imagen 4"></a>
+      <a href="{% url 'blog:projects' %}"><img src="{% static 'mesa_juego.jpg' %}" alt="Imagen 1"></a>
+      <a href="{% url 'blog:projects' %}"><img src="{% static 'mueble_contemporaneo.jpg' %}" alt="Imagen 2"></a>
+      <a href="{% url 'blog:projects' %}"><img src="{% static 'muebles_exterior.jpg' %}" alt="Imagen 3"></a>
+      <a href="{% url 'blog:projects' %}"><img src="{% static 'planos.jpg' %}" alt="Imagen 4"></a>
     </div>
   </div>
 </div>
+
 
 {% endblock %}

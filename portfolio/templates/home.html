@@ -14,7 +14,7 @@
     .fondo {
     background-color: var(--clr-dark); /* Validar otros colores */
     /*  Editar Imagen  */
-    background-image: url(static/EBCToluca.jpg); 
+    background-image: url(static/UVM.jpg); 
     background-size: 100% 100%;
     background-blend-mode: multiply; 
     color: var(#494747);
@@ -70,6 +70,9 @@
 
         <div class="col-md-8 my-auto super-name">
             <h1>Hola! Soy <span class="input" data-name="{{i.name}}" data-subtitle="{{i.subtitle}}"></span></h1>
+        </div>
+
+        <div>
             <p>{{i.description|safe}}</p>
         </div>
     </header>
@@ -80,26 +83,28 @@
 <!-- Escuelas -->
 <section class="p-4 fondo seccion">
 
-    <h1 class="text-center">Donde eh Estudiado</h1> 
+    <h1 class="text-center">Estudios</h1> 
     
     <div class="container text-center">
         <div class="row align-items-center">
             <div class="col">
                 
-            <h2>Escuela Bancaria y Comercial</h2>
-            <p class="my-2 h5 text-muted"><strong>Generación 2013 - 2017</strong></p>
-            <h4>Licenciatura en Banca y Finanzas</h4>
-            <p>Finanzas bursátiles y corporativas, Análisis de Estrategias Financieras para Empresas y Personas, Portafolios de Inversión, Análisis de Información, Excel, Matemáticas Financieras, Administración Financiera</p>
+            <h2>Universidad del Valle de México</h2>
+            <p class="my-2 h5 text-muted"><strong>Generación 2014 - 2020</strong></p>
+            <h4>Licenciatura Diseño Industrial</h4>
+            <p>Diseño y elaboracion de objetos funcionales.</p>
+            <p>Aplicacion de metodos de investigacion tomando en cuenta los costos, ergonomia y manufactura.</p>
+            <p>Implementacion de nuevos materiales, teconologias  dispositivos.</p>
         
             </div>
 
-            <div class="col">
+           <!-- <div class="col">
                 <h2>Ironhack Mexico</h2>
                 <p class="my-2 h5 text-muted"><strong>Sep 2020 - Mar 2021</strong></p>
                 <h4>Data Analytics Bootcamp</h4>
                 <p>Análisis de Datos usando Python (Pandas, Numpy), MySQL, Visualización de Información (Tableau, PowerBI, Matplotlib, Seaborn), Creación, evaluación y desarrollo de modelos de ML (SKLearn), Estadística e Inteligencia de Negocios, Limpieza de Datos, API y WebScraping </p>
            
-            </div>
+            </div>-->
         </div> 
     </div> 
 
