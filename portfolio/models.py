@@ -9,11 +9,11 @@ from ckeditor.fields import RichTextField
 class Main(models.Model):
     """Clase que guarda los datos del usuario"""
 
-    name = RichTextField(max_length=100)
+    name = CharField(max_length=100)
     image = ImageField(upload_to="main/images/")
+    subtitle = CharField(max_length=300, blank=False)
     description = RichTextField(blank=True)
-    subtitle = RichTextField(max_length=300, blank=True)
-
+    
 
 class Portfolio(models.Model):
     """Clase con el modelo de datos para el portafolio"""
