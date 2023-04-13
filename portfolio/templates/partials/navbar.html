@@ -1,23 +1,69 @@
 {% load static %}
-<!-- Cinta de navegacion -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<head>
+  <style>
+    /* Boton para descargar el CV */
+    button.cv {
+      background: black;
+      cursor: pointer;
+      border: none;
+      padding: 8px 12px;
+      color: #FFF;
+      font-size: 16px;
+      font-weight: bold;
+      position: relative;
+      border-radius: 12px;
+      margin-top: 5px;
+    }
+
+    button.cv::before {
+      content : "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, red, blue, deeppink, green, purple, red, blue, deeppink, green, purple);
+      background-size: 800%;
+      border-radius: 10px;
+      filter: blur(8px);
+      animation: glowing 40s linear infinite;
+    }
+
+    @keyframes glowing {
+      0% {background-position: 0 0;}
+      50% {background-position: 800% 0;}
+      100% {background-position: 0 0;}
+    }
+
+    .nav-link {
+    margin-right: 20px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="/">Ricardo Fuentes</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand fw-bold fst-italic" href="/">Rodrigo Fuentes Carbó</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:posts' %}">Blog</a>
+            <a class="nav-link fw-bold" href="{% url 'blog:projects' %}">Projects</a>
           </li>
-          <li class="nav-item d-flex align-items-center">
-            <a class="btn btn-primary btn-sm" href="{% static 'portfolio/cv.pdf' %}" target = "_blank"
-            >Download CV</a>
+          <li class="nav-item">
+            <a href="{% static 'C.V. Rodrigo Fuentes 2023.pdf' %}" download>
+              <button class="cv fw-bold">Download CV</button>
+            </a>
           </li>
-
         </ul>
       </div>
     </div>
-  </nav>
+  </nav>  
+</body>
